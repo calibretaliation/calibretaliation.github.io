@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <title>Blogs - My Personal Website</title>
 </head>
 <body>
-    <nav>
+    <nav class="animate__animated animate__fadeInDown">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
         <a href="news.html">News</a>
         <a href="blogs.html">Blogs</a>
     </nav>
-    <div class="blogs-content">
-        <h1>Blogs</h1>
+    <div class="blogs-content animate__animated animate__fadeIn">
+        <h1 class="animate__animated animate__zoomIn">Blogs</h1>
         <div id="blogs"></div>
     </div>
     <script src="js/script.js"></script>
+    <script>
+        gsap.from("#blogs div", { duration: 1.5, opacity: 0, y: 50, stagger: 0.3 });
+    </script>
 </body>
 </html>

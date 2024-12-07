@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <title>Research - My Personal Website</title>
 </head>
 <body>
-    <nav>
+    <nav class="animate__animated animate__fadeInDown">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
         <a href="news.html">News</a>
         <a href="blogs.html">Blogs</a>
     </nav>
-    <div class="research-content">
-        <h1>Research Interests</h1>
+    <div class="research-content animate__animated animate__fadeIn">
+        <h1 class="animate__animated animate__zoomIn">Research Interests</h1>
         <p>[Your Research Interests]</p>
         
-        <h2>Recent Publications</h2>
+        <h2 class="animate__animated animate__zoomIn">Recent Publications</h2>
         <div id="publications"></div>
         
-        <h2>Recent Activities</h2>
+        <h2 class="animate__animated animate__zoomIn">Recent Activities</h2>
         <p>[List of Activities]</p>
         
-        <h2>Recent Students</h2>
+        <h2 class="animate__animated animate__zoomIn">Recent Students</h2>
         <p>[List of Students]</p>
     </div>
     <script src="js/script.js"></script>
+    <script>
+        gsap.from(".research-content h2", { duration: 1.5, opacity: 0, y: 50, stagger: 0.3 });
+    </script>
 </body>
 </html>

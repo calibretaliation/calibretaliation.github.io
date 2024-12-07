@@ -25,4 +25,9 @@ nav a {
 
 .home-content, .research-content, .news-content, .blogs-content {
     margin: 2em;
+    animation-duration: 1s;
+}
+
+#three-container {
+    margin: 2em 0;
 }
