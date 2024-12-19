@@ -1,0 +1,217 @@
+  .navbar {
+    position: absolute;        /* Place the navbar on top of the page */
+    top: 0;                    /* Align to the top */
+    left: 0;                   /* Align to the left */
+    width: 100%;               /* Full-width navbar */
+    background-color: transparent; /* Transparent background */
+    z-index: 10;               /* Ensure it's above the content */
+    padding-right: 10px;        /* Add spacing */
+    padding-top: 10px;        /* Add spacing */
+    display: flex;             /* Arrange links in a row */
+    justify-content: right;   /* Center the links */
+    z-index: 5; /* Topmost */
+  }
+  .nav-links {
+    display: flex;
+    align-items: center; /* Ensure links and toggle align vertically */
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;               /* White text for visibility */
+    font-weight: bold;
+    margin: 0 15px;            /* Space between links */
+    transition: color 0.3s;    /* Smooth hover effect */
+  }
+  
+  .nav-links a:hover {
+    color: #ffd900;            /* Change text color on hover */
+  }
+  
+  /* Slide-in Animation */
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px) translateX(-50px) scale(0.8); /* Start above the viewport with smaller size */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1); /* Move to final position at normal size */
+    }
+  }
+  
+  /* Shrink-Grow Animation */
+  @keyframes shrinkGrow {
+    0%, 100% {
+      transform: scale(1); /* Original size (15x15px) */
+    }
+    50% {
+      transform: scale(0.9); /* Shrink to 10x10px */
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* Sun Icon Style */
+  .sun-logo {
+    position: absolute;
+    top: 90px;
+    left: 125px;
+    width: 200px;
+    height: 200px;
+    animation: 
+        slideIn 1.5s ease-out, /* Slide-in animation */
+        shrinkGrow 3s infinite ease-in-out 1.5s;
+        ; /* Shrink-grow starts after slide-in */
+    transform-origin: center;        /* Rotation and scaling originate from the center */
+    z-index: 0; /* Above clouds/stars but below navbar */  }
+  .sun-logo:hover {
+    animation: 
+      rotate 4s linear infinite;          /* Add rotation on hover */
+  }
+
+  .moon-logo {
+    position: absolute;
+    top: 90px;
+    left: 125px;
+    width: 200px;
+    height: 200px;
+    animation: 
+        slideIn 1.5s ease-out, /* Slide-in animation */
+        shrinkGrow 3s infinite ease-in-out 1.5s;
+        ; /* Shrink-grow starts after slide-in */
+    transform-origin: center;        /* Rotation and scaling originate from the center */
+    z-index: 0; /* Above clouds/stars but below navbar */  }
+
+ /* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px; /* Reduce height for better appearance */
+    margin-left: 25px; /* Add spacing to separate from nav links */
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e7eb03; /* Default background */
+    transition: 0.4s;
+    border-radius: 30px; /* Rounded slider */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 22px; /* Smaller circle */
+    width: 22px;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 5px;
+    left: 5px;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #7667ff; /* Green for active (night) */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(30px); /* Slide the button to the right */
+  }
+  
+  /* Icons inside the toggle */
+  .slider .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+  
+  .slider .sun-icon {
+    left: 8px;
+    color: #ffdd57; /* Sun yellow */
+  }
+  
+  .slider .moon-icon {
+    right: 6px;
+    color: #c0c0c0; /* Moon silver */
+    transition: opacity 0.4s;
+  }
+  
+  input:checked + .slider .sun-icon {
+    opacity: 0; /* Hide sun when in night mode */
+  }
+  
+  input:checked + .slider .moon-icon {
+    opacity: 1; /* Show moon */
+  }
+  
+  input:not(:checked) + .slider .moon-icon {
+    opacity: 0; /* Hide moon when in day mode */
+  }
+  /* Keyframes to move clouds horizontally */
+  @keyframes moveClouds {
+    0% {
+      transform: translateX(-100vw) translateY(0);
+    }
+    20% {
+        transform: translateX(-60vw) translateY(15px); /* Slight vertical shift */
+    }
+    40% {
+        transform: translateX(-20vw) translateY(-15px); /* Slight vertical shift */
+    }
+    60% {
+        transform: translateX(20vw) translateY(15px); /* Slight vertical shift */
+    }
+    80% {
+        transform: translateX(60vw) translateY(-15px); /* Slight vertical shift */
+    }
+    100% {
+      transform: translateX(100vw) translateY(0);
+    }
+  }
+  
+    /* Stars - Night Animation */
+    .star {
+        position: absolute;
+        opacity: 0.8; /* Slight transparency for natural effect */
+        animation: twinkle ease-in-out 30;   
+        z-index: 0;
+    }
+    /* Cloud Styling with Animation */
+    .cloud {
+        position: absolute;
+        opacity: 0.8; /* Slight transparency for natural effect */
+        animation: moveClouds linear 100; /* Apply animation */
+        z-index: 0;
+      }
+      
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.1;
+      transform: scale(0.2);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+    100% {
+        opacity: 0;
+      }
+  }
+

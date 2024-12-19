@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import HeroSection from "./components/HeroSection";
+import ContactIcons from "./components/ContactIcons";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ResearchPage from "./components/ResearchPage";
+const App = () => {
+  const [isNight, setIsNight] = useState(false);
 
-function App() {
+  // Handle mode toggle
+  const handleToggle = () => {
+    setIsNight((prev) => !prev);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar isNight={isNight} onToggle={handleToggle} />
+      <Routes>
+        <Route path="/" element={<HeroSection isNight={isNight} />} />
+        <Route path="/research" element={<ResearchPage isNight={isNight} />} />
+      </Routes>
+      <ContactIcons isNight={isNight}/>
+    </Router>
   );
-}
+};
 
 export default App;

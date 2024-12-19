@@ -1,0 +1,72 @@
+/* Unified Box Container */
+.contact-icons-box {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    right: 0px; /* Offset from the right */
+    transform: translateY(-50%);
+    background-color: #3fd2f7; /* Background color of the box */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 0; /* Space inside the box */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between icons */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    z-index: 4;
+  }
+  
+  /* Each contact item (icon + text) */
+  .contact-item {
+    position: relative;
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    background-color: #3fd2f7;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 4;
+  }
+  
+  /* Hover effect for the item */
+  .contact-item:hover {
+    background-color: #19b9e0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+  }
+  
+  /* Icon */
+  .contact-item .icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .contact-item:hover .icon {
+    transform: rotate(10deg); /* Slight rotation on hover */
+  }
+  
+  /* Contact text (hidden initially) */
+  .contact-item .contact-text {
+    position: absolute;
+    left: -180px; /* Place text to the left of the icon */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, left 0.3s ease-in-out;
+    font-size: 0.9rem;
+  }
+  
+  /* Show text and animate when hovering */
+  .contact-item:hover .contact-text {
+    opacity: 1;
+    left: -160px; /* Slide text into view */
+  }
+  
